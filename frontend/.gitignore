@@ -12,12 +12,7 @@ dist
 dist-ssr
 *.local
 
-src/Pages/Auth.jsx
-src/Pages/Dashboard.jsx
-src/Pages/Forum.jsx
-src/Pages/Search.jsx
-src/Pages/Video.jsx
-src/Components
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
