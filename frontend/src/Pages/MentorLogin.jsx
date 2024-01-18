@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { RiMentalHealthLine } from "react-icons/ri";
 const MentorLogin = () => {
   const navigate = useNavigate();
   return (
     <main className="w-full flex">
       <div className="relative flex-1 hidden items-center justify-center h-screen bg-gray-900 lg:flex">
         <div className="relative z-10 w-full max-w-md">
-          <img src="https://floatui.com/logo-dark.svg" width={150} />
+        <div className="flex gap-2">
+            <RiMentalHealthLine size={50} className="text-white" /> 
+            <p className="text-white font-bold text-4xl">Mentor Hub</p>
+          </div>
           <div className=" mt-16 space-y-3">
             <h3 className="text-white text-3xl font-bold">MentorHub</h3>
             <p className="text-gray-300">
