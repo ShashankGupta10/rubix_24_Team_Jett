@@ -1,10 +1,75 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Forum = () => {
+  const [chats, setChats] = useState([
+    {
+      contactName: "John",
+      messages: [
+        { text: "Hi there!", sender: "contact" },
+        { text: "How's it going?", sender: "contact" },
+      ],
+    },
+    {
+      contactName: "Alice",
+      messages: [
+        { text: "Hey!", sender: "contact" },
+        { text: "I'm sending you the documents.", sender: "contact" },
+      ],
+    },
+    {
+      contactName: "Bob",
+      messages: [
+        { text: "Hello!", sender: "contact" },
+        { text: "Any plans for the weekend?", sender: "contact" },
+      ],
+    },
+  ]);
+
+  const [selectedChat, setSelectedChat] = useState(chats[0]);
+
+  const [newMessage, setNewMessage] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const messageInputRef = useRef(null);
+
+  useEffect(() => {
+    if (messageInputRef.current) {
+      messageInputRef.current.focus();
+    }
+  }, [selectedChat]);
+
+  const handleSendMessage = () => {
+    if (newMessage.trim() !== "") {
+      const updatedChats = chats.map((chat) =>
+        chat === selectedChat
+          ? { ...chat, messages: [...chat.messages, { text: newMessage, sender: "user" }] }
+          : chat
+      );
+      setChats(updatedChats);
+      setNewMessage("");
+      setSelectedChat(updatedChats.find((chat) => chat === selectedChat) || updatedChats[0]);
+    }
+  };
+  
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && newMessage.trim() !== "") {
+      handleSendMessage();
+    }
+  };
+
+  const handleEmojiClick = (emoji) => {
+    setNewMessage((prevMessage) => prevMessage + emoji);
+    setShowEmojiPicker(false);
+  };
+
+  const handleChatSelect = (chat) => {
+    setSelectedChat(chat);
+  };
+
   return (
     <>
-      <div className="flex h-screen bg-white dark:bg-zinc-800">
-        <aside className="w-80 border-r dark:border-zinc-700">
+      <div className="flex h-screen bg-white ">
+      <aside className="w-80 border-r bg-gray-800 text-white dark:border-zinc-700">
           <div className="p-4 space-y-4">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Messages</h2>
@@ -50,22 +115,28 @@ const Forum = () => {
               <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 absolute right-2.5 top-3"></button>
             </div>
             <div className="space-y-2">
-              <div
-                className="rounded-lg border bg-card text-card-foreground shadow-sm p-2"
-                data-v0-t="card"
-              >
-                <div className="p-6">
-                  <h3 className="font-semibold">Contact Name</h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                    Last message...
-                  </p>
+              {chats.map((chat, index) => (
+                <div
+                  key={index}
+                  className={`rounded-lg border ${
+                    chat === selectedChat ? "bg-primary text-primary-foreground" : "bg-card text-card-foreground"
+                  } shadow-sm p-2 cursor-pointer`}
+                  onClick={() => handleChatSelect(chat)}
+                  data-v0-t="card"
+                >
+                  <div className="p-6">
+                    <h3 className="font-semibold">{chat.contactName}</h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {chat.messages.length > 0 ? chat.messages[chat.messages.length - 1].text : "No messages"}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </aside>
         <section className="flex flex-col w-full">
-          <header className="border-b dark:border-zinc-700 p-4">
+        <header className="border-b dark:border-zinc-700 p-4">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <span className="flex shrink-0 rounded-full relative overflow-visible w-10 h-10">
                 <span className="absolute right-0 top-0 flex h-3 w-3 rounded-full bg-green-600"></span>
@@ -74,28 +145,39 @@ const Forum = () => {
                 </span>
               </span>
               <div>
-                Contact Name
+                {selectedChat.contactName}
                 <span className="text-xs text-green-600 block">Online</span>
               </div>
             </h2>
           </header>
           <main className="flex-1 overflow-auto p-4">
             <div className="space-y-4">
-              <div className="flex items-end gap-2">
-                <div className="rounded-lg bg-zinc-200 dark:bg-zinc-700 p-2">
-                  <p className="text-sm">Hello, how are you?</p>
+              {selectedChat.messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex ${
+                    message.sender === "user" ? "justify-end" : "justify-start"
+                  } gap-2`}
+                >
+                  <div
+                    className={`rounded-lg bg-${
+                      message.sender === "user"
+                        ? "blue-400 text-white"
+                        : "zinc-200"
+                    } p-2`}
+                  >
+                    <p className="text-sm">{message.text}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-end gap-2 justify-end">
-                <div className="rounded-lg bg-blue-500 text-white p-2">
-                  <p className="text-sm">I'm fine, thanks for asking!</p>
-                </div>
-              </div>
+              ))}
             </div>
           </main>
-          <footer className="border-t dark:border-zinc-700 p-4">
+          <footer className="bg-gray-300 rounded-lg dark:border-zinc-700 p-4">
             <div className="flex items-center gap-2">
-              <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+              <button
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -114,11 +196,46 @@ const Forum = () => {
                   <line x1="15" x2="15.01" y1="9" y2="9"></line>
                 </svg>
               </button>
-              <input
-                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
-                placeholder="Type a message..."
-              />
-              <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+              {showEmojiPicker && (
+                <div className="absolute bottom-20 bg-gray-800 rounded-xl p-2 text-2xl">
+                  <div className="flex flex-wrap w-64 ml-0">
+                    <button onClick={() => handleEmojiClick("😊")}>😊</button>
+                    <button onClick={() => handleEmojiClick("👍")}>👍</button>
+                    <button onClick={() => handleEmojiClick("🎉")}>🎉</button>
+                    <button onClick={() => handleEmojiClick("😂")}>😂</button>
+                    <button onClick={() => handleEmojiClick("❤️")}>❤️</button>
+                    <button onClick={() => handleEmojiClick("🔥")}>🔥</button>
+                    <button onClick={() => handleEmojiClick("🙌")}>🙌</button>
+                    <button onClick={() => handleEmojiClick("🤔")}>🤔</button>
+                    <button onClick={() => handleEmojiClick("😍")}>😍</button>
+                    <button onClick={() => handleEmojiClick("🚀")}>🚀</button>
+                    <button onClick={() => handleEmojiClick("💡")}>💡</button>
+                    <button onClick={() => handleEmojiClick("🎈")}>🎈</button>
+                    <button onClick={() => handleEmojiClick("🌟")}>🌟</button>
+                    <button onClick={() => handleEmojiClick("🎵")}>🎵</button>
+                    <button onClick={() => handleEmojiClick("🍕")}>🍕</button>
+                    <button onClick={() => handleEmojiClick("🤙🏻")}>🤙🏻</button>
+                    <button onClick={() => handleEmojiClick("🥶")}>🥶</button>
+                    <button onClick={() => handleEmojiClick("😎")}>😎</button>
+                    <button onClick={() => handleEmojiClick("💓")}>💓</button>
+                    <button onClick={() => handleEmojiClick("🔥")}>🔥</button>
+                    {/* <button onClick={() => handleEmojiClick("🥲")}>🥲</button> */}
+                    <button onClick={() => handleEmojiClick("🥳")}>🥳</button>
+                  </div>
+                </div>
+              )}
+            <input
+              ref={messageInputRef}  
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
+              placeholder="Type a message..."
+            />
+              <button
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                onClick={handleSendMessage}
+              >
                 Send
               </button>
             </div>
