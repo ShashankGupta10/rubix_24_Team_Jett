@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-const Signup = () => {
+const MenteeAuth = () => {
   const navigate = useNavigate();
   return (
     <main className="w-full flex">
@@ -64,7 +64,7 @@ const Signup = () => {
                 Already have an account?{" "}
                 <button
                   className="font-medium text-indigo-600 hover:text-indigo-500"
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate("/menteelog")}
                 >
                   Log in
                 </button>
@@ -153,4 +153,4 @@ const Signup = () => {
     </main>
   );
 };
-export default Signup;
+export default MenteeAuth;

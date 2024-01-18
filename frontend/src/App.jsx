@@ -3,8 +3,10 @@ import Forum from "./Pages/Forum";
 import Dashboard from "./Pages/Dashboard";
 import Search from "./Pages/Search";
 import Price from "./Pages/Pricing";
-import Signup from "./Pages/Signup";
-import Login from "./Pages/Login";
+import MentorAuth from "./Pages/MentorAuth";
+import MenteeAuth from "./Pages/MenteeAuth";
+import MenteeLogin from "./Pages/MenteeLogin";
+import MentorLogin from "./Pages/MentorLogin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Pages/Landing";
 
@@ -13,8 +15,10 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/mentorauth" element={<MentorAuth />} />
+        <Route path="/menteeauth" element={<MenteeAuth />} />
+        <Route path="/menteelog" element={<MenteeLogin/>} />
+        <Route path="/mentorlog" element={<MentorLogin/>} />
         <Route path="/video" element={<Video />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/dashboard" element={<Dashboard />} />

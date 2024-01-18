@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-const Login = () => {
+const MentorLogin = () => {
   const navigate = useNavigate();
   return (
     <main className="w-full flex">
@@ -7,11 +7,10 @@ const Login = () => {
         <div className="relative z-10 w-full max-w-md">
           <img src="https://floatui.com/logo-dark.svg" width={150} />
           <div className=" mt-16 space-y-3">
-            <h3 className="text-white text-3xl font-bold">
-              MentorHub
-            </h3>
+            <h3 className="text-white text-3xl font-bold">MentorHub</h3>
             <p className="text-gray-300">
-            Unlocking Potential, Inspiring Futures: Your Personalized Journey with MentorHub 
+              Unlocking Potential, Inspiring Futures: Your Personalized Journey
+              with MentorHub
             </p>
             <div className="flex items-center -space-x-2 overflow-hidden">
               <img
@@ -65,7 +64,7 @@ const Login = () => {
                 Dont have an account?{" "}
                 <button
                   className="font-medium text-indigo-600 hover:text-indigo-500"
-                  onClick={() => navigate("/signup")}
+                  onClick={() => navigate("/mentorauth")}
                 >
                   Sign up
                 </button>
@@ -212,4 +211,4 @@ const Login = () => {
     </main>
   );
 };
-export default Login;
+export default MentorLogin;
