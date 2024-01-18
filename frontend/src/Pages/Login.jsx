@@ -62,7 +62,7 @@ const Login = () => {
                 Login
               </h3>
               <p className="">
-                Don't have an account?{" "}
+                Dont have an account?{" "}
                 <button
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                   onClick={() => navigate("/signup")}

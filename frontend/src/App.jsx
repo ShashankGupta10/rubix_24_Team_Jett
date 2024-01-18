@@ -6,12 +6,13 @@ import Price from "./Pages/Pricing";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./Pages/Landing";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Video />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/video" element={<Video />} />
