@@ -1,9 +1,74 @@
 import React from "react";
-import one from '../assets/1.png'
+import one from "../assets/1.png";
 
 const Search = () => {
-    return (
-
+  return (
+    <>
+      <header className="flex h-14 items-center gap-4 border-b bg-gray-100/40 px-6 ">
+        <a className="lg:hidden" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-6 w-6"
+          >
+            <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+            <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+            <path d="M12 3v6"></path>
+          </svg>
+          <span className="sr-only">Home</span>
+        </a>
+        <div className="w-full flex-1">
+          <form>
+            <div className="relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 "
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <input
+                className="flex h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </form>
+        </div>
+        <button
+          className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:textAccent-foreground rounded-full border border-gray-200 w-8 h-8 "
+          type="button"
+          id="radix-:r2n:"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          data-state="closed"
+        >
+          <img
+            src={one}
+            width="32"
+            height="32"
+            className="rounded-full"
+            alt="Avatar"
+            style={{ aspectRatio: "32 / 32", objectFit: "cover" }}
+          />
+          <span className="sr-only">Toggle user menu</span>
+        </button>
+      </header>
       <section className="container px-4 md:px-6 grid md:grid-cols-[240px_1fr] gap-10 items-start">
         <div className="flex flex-col gap-4 items-start py-2">
           <div className="grid gap-1">
@@ -231,7 +296,8 @@ const Search = () => {
           </div>
         </div>
       </section>
-    );
-  };
-  
-  export default Search;
+    </>
+  );
+};
+
+export default Search;

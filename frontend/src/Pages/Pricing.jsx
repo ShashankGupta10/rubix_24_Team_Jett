@@ -1,56 +1,20 @@
 const Price = () => {
-  const mentorshipPlans = [
-    {
-      name: "Basic Mentorship",
-      desc: "Perfect for getting started with mentorship. Access to basic features and limited interaction.",
-      price: 2999,
-      features: [
-        "1-hour mentorship session",
-        "Discussion forums access",
-        "Basic analytics dashboard",
-      ],
-    },
-    {
-      name: "Standard Mentorship",
-      desc: "Ideal for a more comprehensive mentorship experience. More features and interaction opportunities.",
-      price: 4999,
-      features: [
-        "2-hour mentorship session",
-        "Discussion forums access",
-        "Advanced analytics dashboard",
-        "Access to live events",
-      ],
-    },
-    {
-      name: "Premium Mentorship",
-      desc: "Unlock the full potential with our premium mentorship package. Maximum features and personalized support.",
-      price: 7999,
-      features: [
-        "Unlimited mentorship sessions",
-        "Discussion forums access",
-        "Advanced analytics dashboard",
-        "Access to live events and workshops",
-        "Priority mentor matching",
-      ],
-    },
-  ];
-
-  //   const plan = {
-  //     name: "Basic plan",
-  //     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //     price: 32,
-  //     isMostPop: true,
-  //     features: [
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //       "Curabitur faucibus",
-  //     ],
-  //   };
+  const plan = {
+    name: "Basic plan",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    price: 32,
+    isMostPop: true,
+    features: [
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+      "Curabitur faucibus",
+    ],
+  };
 
   const features = [
     {
@@ -140,7 +104,7 @@ const Price = () => {
       <div className="max-w-screen-xl mx-auto text-gray-600 md:px-8 flex gap-10">
         <div>
           <div className="relative max-w-xl mt-10 space-y-3 px-4 md:px-0">
-            <h3 className="text-indigo-600 font-semibold">Pricing</h3>
+            <h3 className="text-black font-semibold">Pricing</h3>
             <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
               Pay as you grow
             </p>
@@ -156,7 +120,7 @@ const Price = () => {
             <ul className="flex-1 max-w-md space-y-10 px-4 md:px-0">
               {features.map((item, idx) => (
                 <li key={idx} className="flex gap-x-3">
-                  <div className="flex-none w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                  <div className="flex-none w-12 h-12 rounded-full bg-indigo-50 text-black flex items-center justify-center">
                     {item.icon}
                   </div>
                   <div>
@@ -172,52 +136,23 @@ const Price = () => {
         </div>
         <div className="flex-1 flex flex-col mt-6 md:max-w-xl md:rounded-xl md:border-x-none md:shadow-lg md:mt-0">
           <div className="p-4 md:p-8">
-            {/* <div className="justify-between flex">
-                    <div className="max-w-xs">
-                        <span className='text-2xl text-gray-800 font-semibold sm:text-3xl'>
-                            {plan.name}
-                        </span>
-                        <p className="mt-3 sm:text-sm">
-                            {plan.desc}
-                        </p>
-                    </div>
-                    <div className='flex-none text-gray-800 text-2xl font-semibold sm:text-3xl'>
-                        ${plan.price} <span className="text-xl text-gray-600 font-normal">/mo</span>
-                    </div>
-            </div> */}
-            <div className=" space-y-4">
-              {mentorshipPlans.map((plan, idx) => (
-                <div key={idx} className="p-4 rounded-xl shadow-md pt-4">
-                  <div className="flex justify-between items-center">
-                    <div className="max-w-xs">
-                      <span className="text-2xl text-gray-800 font-semibold sm:text-3xl">
-                        {plan.name}
-                      </span>
-                      <p className="mt-3 text-md sm:text-sm">{plan.desc}</p>
-                      <ul className="list-disc pl-5 mt-2 text-sm text-gray-600">
-                        {plan.features.map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="flex-none text-gray-800 text-2xl font-semibold sm:text-3xl">
-                      ₹{plan.price.toFixed(2)}{" "}
-                      <span className="text-xl text-gray-600 font-normal">
-                        /mo
-                      </span>
-                    </div>
-                  </div>
-                  <button className="mt-4 px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700">
-                    Get Started
-                  </button>
-                </div>
-              ))}
+            <div className="justify-between flex">
+              <div className="max-w-xs">
+                <span className="text-2xl text-gray-800 font-semibold sm:text-3xl">
+                  {plan.name}
+                </span>
+                <p className="mt-3 sm:text-sm">{plan.desc}</p>
+              </div>
+              <div className="flex-none text-gray-800 text-2xl font-semibold sm:text-3xl">
+                ${plan.price}{" "}
+                <span className="text-xl text-gray-600 font-normal">/mo</span>
+              </div>
             </div>
-            {/* <button className='mt-4 px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700'>
-                                Get Started
-                            </button> */}
+            <button className="mt-4 px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-black hover:bg-gray-800 active:bg-gray-700">
+              Get Started
+            </button>
           </div>
-          {/* <ul className="p-4 space-y-3 sm:grid sm:grid-cols-2 md:block md:p-8 lg:grid">
+          <ul className="p-4 space-y-3 sm:grid sm:grid-cols-2 md:block md:p-8 lg:grid">
             <div className="pb-2 col-span-2 text-gray-800 font-medium">
               <p>Features</p>
             </div>
@@ -225,20 +160,20 @@ const Price = () => {
               <li key={idx} className="flex items-center gap-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-indigo-600"
+                  className="h-5 w-5 text-black"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
                 {featureItem}
               </li>
             ))}
-          </ul> */}
+          </ul>
         </div>
       </div>
     </section>
