@@ -41,15 +41,22 @@ const Forum = () => {
     if (newMessage.trim() !== "") {
       const updatedChats = chats.map((chat) =>
         chat === selectedChat
-          ? { ...chat, messages: [...chat.messages, { text: newMessage, sender: "user" }] }
+          ? {
+              ...chat,
+              messages: [
+                ...chat.messages,
+                { text: newMessage, sender: "user" },
+              ],
+            }
           : chat
       );
       setChats(updatedChats);
       setNewMessage("");
-      setSelectedChat(updatedChats.find((chat) => chat === selectedChat) || updatedChats[0]);
+      setSelectedChat(
+        updatedChats.find((chat) => chat === selectedChat) || updatedChats[0]
+      );
     }
   };
-  
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && newMessage.trim() !== "") {
@@ -69,7 +76,7 @@ const Forum = () => {
   return (
     <>
       <div className="flex h-screen bg-white ">
-      <aside className="w-80 border-r bg-gray-800 text-white dark:border-zinc-700">
+        <aside className="w-80 border-r bg-gray-800 text-white dark:border-zinc-700">
           <div className="p-4 space-y-4">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Messages</h2>
@@ -119,7 +126,9 @@ const Forum = () => {
                 <div
                   key={index}
                   className={`rounded-lg border ${
-                    chat === selectedChat ? "bg-primary text-primary-foreground" : "bg-card text-card-foreground"
+                    chat === selectedChat
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card text-card-foreground"
                   } shadow-sm p-2 cursor-pointer`}
                   onClick={() => handleChatSelect(chat)}
                   data-v0-t="card"
@@ -127,7 +136,9 @@ const Forum = () => {
                   <div className="p-6">
                     <h3 className="font-semibold">{chat.contactName}</h3>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {chat.messages.length > 0 ? chat.messages[chat.messages.length - 1].text : "No messages"}
+                      {chat.messages.length > 0
+                        ? chat.messages[chat.messages.length - 1].text
+                        : "No messages"}
                     </p>
                   </div>
                 </div>
@@ -136,7 +147,7 @@ const Forum = () => {
           </div>
         </aside>
         <section className="flex flex-col w-full">
-        <header className="border-b dark:border-zinc-700 p-4">
+          <header className="border-b dark:border-zinc-700 p-4">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <span className="flex shrink-0 rounded-full relative overflow-visible w-10 h-10">
                 <span className="absolute right-0 top-0 flex h-3 w-3 rounded-full bg-green-600"></span>
@@ -224,14 +235,14 @@ const Forum = () => {
                   </div>
                 </div>
               )}
-            <input
-              ref={messageInputRef}  
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              onKeyDown={handleKeyDown}
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
-              placeholder="Type a message..."
-            />
+              <input
+                ref={messageInputRef}
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
+                placeholder="Type a message..."
+              />
               <button
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                 onClick={handleSendMessage}

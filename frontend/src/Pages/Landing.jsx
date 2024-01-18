@@ -1,4 +1,3 @@
-import React from "react";
 import one from "./../assets/1.png";
 import { useNavigate } from "react-router-dom";
 
@@ -329,7 +328,8 @@ const Landing = () => {
               Meet our Customers
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
-              Trusted by the best mentors in the world. We help mentees of all the ages and backgrounds.
+              Trusted by the best mentors in the world. We help mentees of all
+              the ages and backgrounds.
             </p>
           </div>
           <div className="divide-y rounded-lg border">
@@ -412,7 +412,7 @@ const Landing = () => {
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
           <div className="space-y-3">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-            Experience the mentorship from the best mentors in the world.
+              Experience the mentorship from the best mentors in the world.
             </h2>
             <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Let your team focus on shipping features instead of managing

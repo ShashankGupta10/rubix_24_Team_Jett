@@ -6,8 +6,8 @@ const MentorLogin = () => {
     <main className="w-full flex">
       <div className="relative flex-1 hidden items-center justify-center h-screen bg-gray-900 lg:flex">
         <div className="relative z-10 w-full max-w-md">
-        <div className="flex gap-2">
-            <RiMentalHealthLine size={50} className="text-white" /> 
+          <div className="flex gap-2">
+            <RiMentalHealthLine size={50} className="text-white" />
             <p className="text-white font-bold text-4xl">Mentor Hub</p>
           </div>
           <div className=" mt-16 space-y-3">
@@ -62,7 +62,7 @@ const MentorLogin = () => {
             />
             <div className="mt-5 space-y-2">
               <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
-                Login
+                Login as Mentor
               </h3>
               <p className="">
                 Dont have an account?{" "}
