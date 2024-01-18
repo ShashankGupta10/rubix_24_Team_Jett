@@ -1,27 +1,26 @@
-import React from "react";
 import Video from "./Pages/Video";
 import Forum from "./Pages/Forum";
 import Dashboard from "./Pages/Dashboard";
 import Search from "./Pages/Search";
 import Price from "./Pages/Pricing";
-import Signup from "./Pages/Auth";
-
+import Signup from "./Pages/Signup";
+import Login from "./Pages/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Signup/>}/>
-          <Route path="/video" element={<Video/>}/>
-          <Route path="/forum" element={<Forum/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/search" element={<Search/>}/>
-          <Route path="/price" element={<Price/>}/>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Video />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/video" element={<Video />} />
+        <Route path="/forum" element={<Forum />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/price" element={<Price />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
