@@ -9,11 +9,16 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/ecommerce'
 
+CORS(app)
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
-CORS(app)
+
+from routes.trial_mentorship import trial_mentorship_blueprint
+
+app.register_blueprint(trial_mentorship_blueprint)
+
 
 @app.route('/')
 def root():

@@ -1,2 +1,4 @@
 .env
-./environment
+environment
+__pycache__
+/routes/__pycache__
