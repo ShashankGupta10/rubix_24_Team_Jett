@@ -206,7 +206,7 @@ const MenteeLogin = () => {
             </div>
             <button
               className="w-full px-4 py-2 text-white font-medium  bg-black hover:bg-gray-700 active:bg-gray-600 rounded-lg duration-150"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/menteedashboard")}
             >
               Login
             </button>

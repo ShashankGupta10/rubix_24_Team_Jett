@@ -1,4 +1,7 @@
+import { IoMdArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 const Price = () => {
+  const navigate = useNavigate();
   const plan = {
     name: "Basic plan",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -100,23 +103,25 @@ const Price = () => {
   ];
 
   return (
-    <section className="relative py-14">
-      <div className="max-w-screen-xl mx-auto text-gray-600 md:px-8 flex gap-10">
-        <div>
-          <div className="relative max-w-xl mt-10 space-y-3 px-4 md:px-0">
-            <h3 className="text-black font-semibold">Pricing</h3>
-            <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-              Pay as you grow
+    <section className="relative mt-4">
+      <div className="max-w-screen-xl mx-auto text-gray-600 md:px-8">
+        <div onClick={()=>{navigate('/dashboard')}} >
+          <IoMdArrowBack className="w-6 h-6" />
+        </div>
+        <div className="relative max-w-xl mt-4 space-y-3 px-4 md:px-0">
+          <h3 className="text-black font-semibold">Pricing</h3>
+          <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+            Pay as you grow
+          </p>
+          <div className="max-w-xl">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              efficitur consequat nunc.
             </p>
-            <div className="max-w-xl">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                efficitur consequat nunc.
-              </p>
-            </div>
           </div>
-
-          <div className="mt-16 justify-between gap-8 md:flex">
+        </div>
+        <div className="flex justify-between mt-10">
+          <div className="justify-between gap-8 md:flex">
             <ul className="flex-1 max-w-md space-y-10 px-4 md:px-0">
               {features.map((item, idx) => (
                 <li key={idx} className="flex gap-x-3">
@@ -133,47 +138,48 @@ const Price = () => {
               ))}
             </ul>
           </div>
-        </div>
-        <div className="flex-1 flex flex-col mt-6 md:max-w-xl md:rounded-xl md:border-x-none md:shadow-lg md:mt-0">
-          <div className="p-4 md:p-8">
-            <div className="justify-between flex">
-              <div className="max-w-xs">
-                <span className="text-2xl text-gray-800 font-semibold sm:text-3xl">
-                  {plan.name}
-                </span>
-                <p className="mt-3 sm:text-sm">{plan.desc}</p>
+
+          <div className="flex-1 flex flex-col shadow-2xl md:max-w-xl border border-gray-300 mt-10 md:rounded-xl md:border-x-none md:shadow-lg md:mt-0">
+            <div className="p-4 md:p-8">
+              <div className="justify-between flex mt-4">
+                <div className="max-w-xs">
+                  <span className="text-2xl text-gray-800 font-semibold sm:text-3xl">
+                    {plan.name}
+                  </span>
+                  <p className="mt-3 sm:text-sm">{plan.desc}</p>
+                </div>
+                <div className="flex-none text-gray-800 text-2xl font-semibold sm:text-3xl">
+                  ${plan.price}{" "}
+                  <span className="text-xl text-gray-600 font-normal">/mo</span>
+                </div>
               </div>
-              <div className="flex-none text-gray-800 text-2xl font-semibold sm:text-3xl">
-                ${plan.price}{" "}
-                <span className="text-xl text-gray-600 font-normal">/mo</span>
-              </div>
+              <button className="mt-4 px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-black hover:bg-gray-800 active:bg-gray-700">
+                Get Started
+              </button>
             </div>
-            <button className="mt-4 px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-black hover:bg-gray-800 active:bg-gray-700">
-              Get Started
-            </button>
+            <ul className="p-4 space-y-3 mt-4 sm:grid sm:grid-cols-2 md:block md:p-8 lg:grid">
+              <div className="pb-2 col-span-2 text-gray-800 font-medium">
+                <p>Features</p>
+              </div>
+              {plan.features.map((featureItem, idx) => (
+                <li key={idx} className="flex items-center gap-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-black"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  {featureItem}
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="p-4 space-y-3 sm:grid sm:grid-cols-2 md:block md:p-8 lg:grid">
-            <div className="pb-2 col-span-2 text-gray-800 font-medium">
-              <p>Features</p>
-            </div>
-            {plan.features.map((featureItem, idx) => (
-              <li key={idx} className="flex items-center gap-5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-black"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                {featureItem}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

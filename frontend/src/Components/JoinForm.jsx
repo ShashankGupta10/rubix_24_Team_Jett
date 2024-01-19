@@ -1,7 +1,10 @@
 import { useHMSActions } from "@100mslive/react-sdk";
 import { useState } from "react";
+import { IoMdArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const JoinForm = () => {
+  const navigate = useNavigate();
   const hmsActions = useHMSActions();
   const [inputValues, setInputValues] = useState({
     name: "",
@@ -55,7 +58,10 @@ const JoinForm = () => {
     //   <button className="btn-primary">Join</button>
     // </form>
     <main class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <header class="mb-10 text-center">
+                <div className="border border-gray-300 py-2 px-2 rounded-lg" onClick={()=>{navigate('/dashboard')}}>
+              <IoMdArrowBack className="w-6 h-4" />
+              </div>
+      <header class="mt-6 mb-10 text-center">
         <h1 class="text-4xl font-bold text-gray-800 ">
           Create and Join Room
         </h1>

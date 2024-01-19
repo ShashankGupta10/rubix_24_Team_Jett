@@ -1,7 +1,10 @@
 import React from "react";
 import one from "../assets/1.png";
+import { IoMdArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const navigate = useNavigate();
   return (
     <>
       <header className="flex h-14 items-center gap-4 border-b bg-gray-100/40 px-6 ">
@@ -138,6 +141,7 @@ const Search = () => {
                 }}
               ></div>
             </div>
+
             <div
               data-state="closed"
               data-orientation="vertical"
@@ -192,7 +196,16 @@ const Search = () => {
               ></div>
             </div>
           </div>
+          <div
+            className="absolute bottom-10"
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+          >
+            <IoMdArrowBack className="w-6 h-6" />
+          </div>
         </div>
+
         <div className="grid gap-6 md:gap-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="grid gap-1">
@@ -231,67 +244,78 @@ const Search = () => {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="relative group">
-              <a className="absolute inset-0 z-10" href="#">
-                <span className="sr-only">View</span>
-              </a>
               <img
                 src={one}
                 alt="Cover image"
                 width="200"
                 height="200"
-                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-50 transition-opacity"
+                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-70 transition-opacity"
               />
               <div className="flex-1 py-4">
                 <h3 className="font-semibold tracking-tight">John Doe</h3>
-                <small className="text-sm leading-none text-gray-500 dark:text-gray-400">
+                <small className="text-sm leading-none text-gray-600 ">
                   Expertise: Tech
                 </small>
-                <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
+
+                <p className="text-sm leading-none text-gray-600 ">
                   Availability: Weekdays
                 </p>
+                <p className="text-sm leading-none text-gray-600  mt-2">
+                  Range: 30$ to 50$
+                </p>
               </div>
+              <button onClick={()=>{navigate('/mentorprofile')}} className="px-4 py-2 w-full text-gray-800 bg-gray-200 rounded-lg duration-150 hover:bg-gray-100 active:bg-gray-200">
+                Book Mentor
+              </button>
             </div>
             <div className="relative group">
-              <a className="absolute inset-0 z-10" href="#">
-                <span className="sr-only">View</span>
-              </a>
+
               <img
-                src="/placeholder.svg"
+                src={one}
                 alt="Cover image"
                 width="200"
                 height="200"
-                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-50 transition-opacity"
+                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-70 transition-opacity"
               />
               <div className="flex-1 py-4">
                 <h3 className="font-semibold tracking-tight">Jane Smith</h3>
-                <small className="text-sm leading-none text-gray-500 dark:text-gray-400">
+                <small className="text-sm leading-none text-gray-600">
                   Expertise: Business
                 </small>
-                <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                  Availability: Weekends
+                <p className="text-sm leading-none text-gray-600 ">
+                  Availability: Weekend
+                </p>
+                <p className="text-sm leading-none text-gray-600  mt-2">
+                  Range: 30$ to 50$
                 </p>
               </div>
+              <button  className="px-4 py-2 w-full text-gray-800 bg-gray-200 rounded-lg duration-150 hover:bg-gray-100 active:bg-gray-200">
+                Book Mentor
+              </button> 
             </div>
             <div className="relative group">
-              <a className="absolute inset-0 z-10" href="#">
-                <span className="sr-only">View</span>
-              </a>
               <img
-                src="/placeholder.svg"
+                src={one}
                 alt="Cover image"
                 width="200"
                 height="200"
-                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-50 transition-opacity"
+                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-70 transition-opacity"
               />
               <div className="flex-1 py-4">
                 <h3 className="font-semibold tracking-tight">Alex Johnson</h3>
-                <small className="text-sm leading-none text-gray-500 dark:text-gray-400">
+                <small className="text-sm leading-none text-gray-600">
                   Expertise: Education
                 </small>
-                <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
+                <p className="text-sm leading-none text-gray-600 ">
                   Availability: Weekdays
                 </p>
+                <p className="text-sm leading-none text-gray-600  mt-2">
+                  Range: 30$ to 50$
+                </p>
               </div>
+              <button className="px-4 py-2 w-full text-gray-800 bg-gray-200 rounded-lg duration-150 hover:bg-gray-100 active:bg-gray-200">
+                Book Mentor
+              </button>
             </div>
           </div>
         </div>
