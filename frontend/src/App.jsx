@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Video from "./Pages/Video";
 import Dashboard from "./Pages/Dashboard";
-import Chat from "./Pages/CHat";
+import Chat from "./Pages/Chat";
 import Search from "./Pages/Search";
 import Price from "./Pages/Pricing";
 import MentorAuth from "./Pages/MentorAuth";

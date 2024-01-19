@@ -25,5 +25,5 @@ def trial_mentorship():
     llm_answer = llm.predict(prompt_template, memory=memory)
     os.remove(file_path)
     tts = TTS(model_name="tts_models/multilingual/multi-dataset/your_tts", progress_bar=True).to("cuda")
-    tts.tts_to_file(llm_answer, speaker_wav="./test.wav", language="en", file_path="./output.wav")
-    return send_file("./output.wav", mimetype="audio/wav")
+    tts.tts_to_file(llm_answer, speaker_wav="./routes/test.wav", language="en", file_path="./routes/output.wav")
+    return send_file("./routes/output.wav", mimetype="audio/wav")
