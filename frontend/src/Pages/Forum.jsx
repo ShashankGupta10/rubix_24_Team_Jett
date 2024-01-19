@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 const Forum = () => {
   const [chats, setChats] = useState([
@@ -29,27 +29,20 @@ const Forum = () => {
 
   const [newMessage, setNewMessage] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const messageInputRef = useRef(null);
 
-  useEffect(() => {
-    if (messageInputRef.current) {
-      messageInputRef.current.focus();
-    }
-  }, [selectedChat]);
+const handleSendMessage = () => {
+  if (newMessage.trim() !== "") {
+    const updatedChats = chats.map((chat) =>
+      chat === selectedChat
+        ? { ...chat, messages: [...chat.messages, { text: newMessage, sender: "user" }] }
+        : chat
+    );
+    setChats(updatedChats);
+    setNewMessage("");
+    setSelectedChat(updatedChats.find((chat) => chat === selectedChat) || updatedChats[0]);
+  }
+};
 
-  const handleSendMessage = () => {
-    if (newMessage.trim() !== "") {
-      const updatedChats = chats.map((chat) =>
-        chat === selectedChat
-          ? { ...chat, messages: [...chat.messages, { text: newMessage, sender: "user" }] }
-          : chat
-      );
-      setChats(updatedChats);
-      setNewMessage("");
-      setSelectedChat(updatedChats.find((chat) => chat === selectedChat) || updatedChats[0]);
-    }
-  };
-  
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && newMessage.trim() !== "") {
@@ -162,7 +155,7 @@ const Forum = () => {
                   <div
                     className={`rounded-lg bg-${
                       message.sender === "user"
-                        ? "blue-400 text-white"
+                        ? "blue-400 "
                         : "zinc-200"
                     } p-2`}
                   >
@@ -224,14 +217,13 @@ const Forum = () => {
                   </div>
                 </div>
               )}
-            <input
-              ref={messageInputRef}  
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              onKeyDown={handleKeyDown}
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
-              placeholder="Type a message..."
-            />
+              <input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="flex h-10 w-full rounded-md  border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
+                placeholder="Type a message..."
+              />
               <button
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                 onClick={handleSendMessage}

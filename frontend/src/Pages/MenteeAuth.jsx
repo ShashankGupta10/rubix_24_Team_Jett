@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import logo from '../assets/logo.png'
+
 const MenteeAuth = () => {
   const navigate = useNavigate();
   return (
     <main className="w-full flex">
       <div className="relative flex-1 hidden items-center justify-center h-screen bg-gray-900 lg:flex">
         <div className="relative z-10 w-full max-w-md">
-          <img src="https://floatui.com/logo-dark.svg" width={150} />
+          <img src={logo} width={400} />
           <div className=" mt-16 space-y-3">
             <h3 className="text-white text-3xl font-bold">MentorHub</h3>
             <p className="text-gray-300">
@@ -63,7 +65,7 @@ const MenteeAuth = () => {
               <p className="">
                 Already have an account?{" "}
                 <button
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium text-black hover:text-gray-700"
                   onClick={() => navigate("/menteelog")}
                 >
                   Log in
@@ -142,8 +144,8 @@ const MenteeAuth = () => {
               />
             </div>
             <button
-              className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
-              onClick={() => navigate("/login")}
+              className="w-full px-4 py-2 text-white font-medium bg-black hover:bg-gray-700 active:bg-gray-600 rounded-lg duration-150"
+              onClick={() => navigate("/dashboard")}
             >
               Create account
             </button>

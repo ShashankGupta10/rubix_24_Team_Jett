@@ -1,5 +1,6 @@
 import { useAVToggle } from "@100mslive/react-sdk";
 
+
 const Footer = () => {
   const { isLocalAudioEnabled, toggleAudio, isLocalVideoEnabled, toggleVideo } =
     useAVToggle();

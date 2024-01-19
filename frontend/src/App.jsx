@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Video from "./Pages/Video";
 import Forum from "./Pages/Forum";
 import Dashboard from "./Pages/Dashboard";
@@ -7,8 +9,8 @@ import MentorAuth from "./Pages/MentorAuth";
 import MenteeAuth from "./Pages/MenteeAuth";
 import MenteeLogin from "./Pages/MenteeLogin";
 import MentorLogin from "./Pages/MentorLogin";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Pages/Landing";
+import RoomGen from "./Pages/RoomGen";
 
 const App = () => {
   return (
@@ -24,6 +26,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/search" element={<Search />} />
         <Route path="/price" element={<Price />} />
+        <Route path="/room" element={<RoomGen />} />
       </Routes>
     </BrowserRouter>
   );
