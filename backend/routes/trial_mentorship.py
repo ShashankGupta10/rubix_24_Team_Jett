@@ -17,8 +17,8 @@ def trial_mentorship():
     file_path = os.path.join(save_dir, local.name)
     print(local, file_path)
     with open(file_path, "wb") as f:
-        f.write(local.getvalue())
-    model = whisper.load_model("base", device="cpu")
+        f.write(local.read())
+    model = whisper.load_model("base", device="cuda")
     result = model.transcribe(file_path, fp16=False)
     transcribed_text = result["text"]
     prompt_template = f"You are a mentor bot. You are talking to a student. The student says: {transcribed_text}. Your task is to help the student with their career guidance. Give them very general guidance to the questions they ask. You can also ask them questions about their career goals."
