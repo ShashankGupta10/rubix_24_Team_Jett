@@ -1,5 +1,6 @@
 import one from "./../assets/1.png";
 import { useNavigate } from "react-router-dom";
+import Avatar from "../Components/avatar";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -61,8 +62,8 @@ const Landing = () => {
           </nav>
         </header>
         <main className="flex-1">
-          <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-            <div className="container px-4 md:px-6">
+          <div className="flex justify-around w-full py-12 md:py-24 lg:py-32 xl:py-48">
+            <div className="container md:px-6 w-3/6">
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
@@ -95,9 +96,11 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-          </section>
+              <Avatar />
+          </div>
         </main>
       </div>
+
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
         <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-3">
