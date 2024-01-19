@@ -1,7 +1,20 @@
 import one from "./../assets/1.png";
+import { IoMdArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
 const MentorProfile = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div
+        className="mb-4"
+        onClick={() => {
+          navigate("/dashboard");
+        }}
+      >
+        <IoMdArrowBack className="w-6 h-6" />
+      </div>
       <div className="lg:grid lg:grid-cols-3 lg:gap-8">
         <div className="lg:col-span-1">
           <div className="flex items-center justify-center lg:block h-48 w-full overflow-hidden rounded-lg shadow-md bg-white ">
@@ -17,7 +30,7 @@ const MentorProfile = () => {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
+              fill="#facc15"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -31,7 +44,7 @@ const MentorProfile = () => {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
+              fill="#facc15"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -45,7 +58,7 @@ const MentorProfile = () => {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
+              fill="#facc15"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -59,7 +72,7 @@ const MentorProfile = () => {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
+              fill="#facc15"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -84,7 +97,7 @@ const MentorProfile = () => {
             </svg>
           </div>
           <div className="mt-4 flex items-center justify-center text-sm text-gray-500 ">
-            4.8 average rating
+            4 average rating
           </div>
           <div className="mt-6">
             <h2 className="text-center text-2xl font-bold">John Doe</h2>
@@ -156,6 +169,7 @@ const MentorProfile = () => {
           </div>
         </div>
         <div className="mt-8 lg:mt-0 lg:col-span-2">
+          <div className="px-4 py-5 bg-white shadow rounded-lg mb-4">500$/month</div>
           <div className="px-4 py-5 bg-white shadow rounded-lg ">
             <h2 className="text-xl font-bold">Bio</h2>
             <p className="mt-2 text-sm text-gray-500 ">
@@ -200,7 +214,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -214,7 +228,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -228,7 +242,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -278,7 +292,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -292,7 +306,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -306,7 +320,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -320,7 +334,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -334,7 +348,7 @@ const MentorProfile = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#facc15"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"

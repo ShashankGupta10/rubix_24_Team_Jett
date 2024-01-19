@@ -21,11 +21,13 @@ function Video() {
   }, [hmsActions, isConnected]);
 
   return (
-    <div className="Video">
+    <div className="Video ">
       {isConnected ? (
         <>
+        <div className="flex flex-col h-screen items-center justify-center rounded-lg border-black border ">
           <Conference />
           <Footer />
+          </div>
         </>
       ) : (
         <JoinForm />

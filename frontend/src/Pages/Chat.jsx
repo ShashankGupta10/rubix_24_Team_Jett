@@ -1,34 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { IoMdArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
-const Forum = () => {
+const Chat = () => {
   const [chats, setChats] = useState([
     {
-      contactName: "John",
+      contactName: "Jenny Olsen",
       messages: [
         { text: "Hi there!", sender: "contact" },
-        { text: "How's it going?", sender: "contact" },
+        { text: "I have completed my application in the university now waiting for confirmation! Thanks", sender: "contact" },
+        { text: "Thanks ❤️", sender: "contact" },
+
       ],
     },
     {
-      contactName: "Alice",
+      contactName: "Jonas Shinde",
       messages: [
         { text: "Hey!", sender: "contact" },
-        { text: "I'm sending you the documents.", sender: "contact" },
+        { text: "I have mailed you the documents.", sender: "contact" },
       ],
     },
     {
-      contactName: "Bob",
+      contactName: "Jatin Aristotle",
       messages: [
         { text: "Hello!", sender: "contact" },
         { text: "Any plans for the weekend?", sender: "contact" },
+        { text: "Could we schedule the meet on weekend?", sender: "contact" },
       ],
     },
   ]);
 
   const [selectedChat, setSelectedChat] = useState(chats[0]);
-
+  const navigate = useNavigate();
+  const messageInputRef = useRef(null);
   const [newMessage, setNewMessage] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+
+  useEffect(() => {
+    if (messageInputRef.current && isInputFocused) {
+      messageInputRef.current.focus();
+    }
+  }, [selectedChat, isInputFocused]);
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
@@ -48,6 +61,7 @@ const Forum = () => {
       setSelectedChat(
         updatedChats.find((chat) => chat === selectedChat) || updatedChats[0]
       );
+      setIsInputFocused(false);
     }
   };
 
@@ -64,13 +78,14 @@ const Forum = () => {
 
   const handleChatSelect = (chat) => {
     setSelectedChat(chat);
+    setIsInputFocused(true);
   };
 
   return (
     <>
       <div className="flex h-screen bg-white ">
-        <aside className="w-80 border-r bg-gray-800 text-white dark:border-zinc-700">
-          <div className="p-4 space-y-4">
+        <aside className="w-80 border-r border-zinc-400">
+          <div className="p-4 space-y-4 h-auto">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Messages</h2>
               <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
@@ -109,20 +124,19 @@ const Forum = () => {
               </svg>
               <input
                 type="search"
-                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-8"
+                className="flex h-10 w-full rounded-md border border-gray-400 border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-8"
                 placeholder="Search messages..."
               />
-              <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 absolute right-2.5 top-3"></button>
             </div>
             <div className="space-y-2">
               {chats.map((chat, index) => (
                 <div
                   key={index}
-                  className={`rounded-lg border ${
+                  className={`rounded-md border border-gray-400 ${
                     chat === selectedChat
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-gray-600 text-white"
                       : "bg-card text-card-foreground"
-                  } shadow-sm p-2 cursor-pointer`}
+                  } shadow-sm cursor-pointer`}
                   onClick={() => handleChatSelect(chat)}
                   data-v0-t="card"
                 >
@@ -136,11 +150,15 @@ const Forum = () => {
                   </div>
                 </div>
               ))}
+
             </div>
+            <div className="absolute bottom-10" onClick={()=>{navigate('/dashboard')}}>
+              <IoMdArrowBack className="w-6 h-6" />
+              </div>
           </div>
         </aside>
         <section className="flex flex-col w-full">
-          <header className="border-b dark:border-zinc-700 p-4">
+          <header className="border-b  p-4">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <span className="flex shrink-0 rounded-full relative overflow-visible w-10 h-10">
                 <span className="absolute right-0 top-0 flex h-3 w-3 rounded-full bg-green-600"></span>
@@ -164,10 +182,10 @@ const Forum = () => {
                   } gap-2`}
                 >
                   <div
-                    className={`rounded-lg bg-${
+                    className={`rounded-lg ${
                       message.sender === "user"
-                        ? "blue-400 "
-                        : "zinc-200"
+                        ? "bg-blue-600 text-white"
+                        : "bg-zinc-200"
                     } p-2`}
                   >
                     <p className="text-sm">{message.text}</p>
@@ -201,7 +219,7 @@ const Forum = () => {
                 </svg>
               </button>
               {showEmojiPicker && (
-                <div className="absolute bottom-20 bg-gray-800 rounded-xl p-2 text-2xl">
+                <div className="absolute bottom-20 bg-gray-600 rounded-xl p-2 text-2xl">
                   <div className="flex flex-wrap w-64 ml-0">
                     <button onClick={() => handleEmojiClick("😊")}>😊</button>
                     <button onClick={() => handleEmojiClick("👍")}>👍</button>
@@ -250,4 +268,4 @@ const Forum = () => {
   );
 };
 
-export default Forum;
+export default Chat;

@@ -1,12 +1,19 @@
 /* eslint-disable react/no-unknown-property */
 // import React from "react";
 import one from "./../assets/1.png";
+import chart1 from "./../assets/chart1.svg";
+import chart2 from "./../assets/chart2.svg";
+import chart3 from "./../assets/chart3.svg";
+
+import { useNavigate } from "react-router-dom";
+
 const Dashboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-gray-100/40 lg:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex h-[60px] items-center border-b px-6">
+          <div className="flex h-[60px] items-center border-b px-6 ">
             <a className="flex items-center gap-2 font-semibold" href="#">
               {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +52,12 @@ const Dashboard = () => {
               <span className="sr-only">Toggle notifications</span>
             </button>
           </div>
-          <div className="flex-1 overflow-auto py-2">
+          <div className="flex-1 overflow-auto py-2 ">
             <nav className="grid items-start px-4 text-sm font-medium">
               <a
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900"
+                className="flex items-center gap-3 rounded-lg px-3 py-2  text-gray-900  transition-all hover:text-gray-900"
                 href="#"
+                onClick={() => navigate("/dashboard")}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -70,50 +78,117 @@ const Dashboard = () => {
               </a>
 
               <a
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 "
+                className="flex items-center gap-3 rounded-lg px-3 py-2  text-gray-900  transition-all hover:text-gray-900"
                 href="#"
+                onClick={() => navigate("/video")}
               >
                 <svg
+                  className="w-4 h-4 text-gray-800 "
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
                   fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
+                  viewBox="0 0 20 14"
                 >
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    stroke-width="2"
+                    d="M12 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Zm7 11-6-2V4l6-2v10Z"
+                  />
                 </svg>
-                Customers
+                Video
               </a>
 
               <a
-                className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 "
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-900  transition-all hover:text-gray-900 "
                 href="#"
+                onClick={() => navigate("/search")}
               >
                 <svg
+                  className="w-4 h-4 text-gray-800 "
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
                   fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
                 >
-                  <path d="M3 3v18h18"></path>
-                  <path d="m19 9-5 5-4-4-3 3"></path>
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
                 </svg>
-                Analytics
+                Search
               </a>
+              <a
+                className="flex items-center gap-3 rounded-l px-3 py-2 text-gray-900  transition-all hover:text-gray-900 "
+                href="#"
+                onClick={() => navigate("/forum")}
+              >
+                <svg
+                  className="w-4 h-4 text-gray-800 "
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 18"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    stroke-width="2"
+                    d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
+                  />
+                </svg>
+                Forum
+              </a>
+              <a
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-900  transition-all hover:text-gray-900 "
+                href="#"
+                onClick={() => navigate("/chat")}
+              >
+                <svg
+                  class="w-4 h-4 text-gray-800 "
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m19 2-8.4 7.05a1 1 0 0 1-1.2 0L1 2m18 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1m18 0v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2"
+                  />
+                </svg>
+                Chats
+              </a>
+              <a
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-900  transition-all hover:text-gray-900 "
+                href="#"
+                onClick={() => navigate("/price")}
+              >
+                <svg
+                  class="w-4 h-4 text-gray-800 "
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                  />
+                </svg>
+                Pricing
+              </a>
+
             </nav>
           </div>
         </div>
@@ -137,6 +212,7 @@ const Dashboard = () => {
               <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
               <path d="M12 3v6"></path>
             </svg>
+            roun
             <span className="sr-only">Home</span>
           </a>
           <div className="w-full flex-1">
@@ -177,7 +253,10 @@ const Dashboard = () => {
               src={one}
               width="32"
               height="32"
-              className="rounded-full"
+              className="rounded-full "
+              onClick={() => {
+                navigate("/mentorprofile");
+              }}
               alt="Avatar"
               style={{ aspectRatio: "32 / 32", objectFit: "cover" }}
             />
@@ -262,7 +341,11 @@ const Dashboard = () => {
                   {/* <div className="aspect-[4/3]"> */}
                   <div style={{ width: "100%", height: "100%" }}>
                     {/* <div style={{ position: "relative" }}> */}
-                    <img src={one} alt="" className="object-contain" />
+                    <img
+                      src={chart1}
+                      alt=""
+                      className=" bg-gray-900 rounded-md h-full w-full"
+                    />
                     {/* </div> */}
                   </div>
                   {/* </div> */}
@@ -282,7 +365,11 @@ const Dashboard = () => {
                   <div className="aspect-[4/3]">
                     <div style={{ width: "100%", height: "100%" }}>
                       <div style={{ position: "relative" }}>
-                        <img src={one} alt="" />
+                        <img
+                          src={chart2}
+                          alt=""
+                          className=" bg-gray-900 rounded-md h-full w-full"
+                        />
                       </div>
                     </div>
                   </div>
@@ -304,7 +391,11 @@ const Dashboard = () => {
                   <div className="aspect-[4/3]">
                     <div style={{ width: "100%", height: "100%" }}>
                       <div style={{ position: "relative" }}>
-                        <img src={one} alt="" />
+                        <img
+                          src={chart3}
+                          alt=""
+                          className=" bg-gray-900 rounded-md h-full w-full"
+                        />
                       </div>
                     </div>
                   </div>
