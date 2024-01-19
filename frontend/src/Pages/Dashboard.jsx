@@ -260,11 +260,11 @@ const Dashboard = () => {
                 </div>
                 <div className="p-6">
                   {/* <div className="aspect-[4/3]"> */}
-                    <div style={{ width: "100%", height: "100%" }}>
-                      {/* <div style={{ position: "relative" }}> */}
-                        <img src={one} alt="" className="object-contain" />
-                      {/* </div> */}
-                    </div>
+                  <div style={{ width: "100%", height: "100%" }}>
+                    {/* <div style={{ position: "relative" }}> */}
+                    <img src={one} alt="" className="object-contain" />
+                    {/* </div> */}
+                  </div>
                   {/* </div> */}
                 </div>
               </div>
