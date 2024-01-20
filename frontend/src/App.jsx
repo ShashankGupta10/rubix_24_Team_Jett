@@ -15,6 +15,7 @@ import Forums from "./Pages/Forums";
 import Forumopen from "./Pages/Forumopen";
 import MenteeDashboard from "./Pages/MenteeDashboard";
 import FreeTrial from "./Pages/FreeTrial";
+import AIChatbot from "./Pages/AIChatbot";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/price" element={<Price />} />
         <Route path="/mentorprofile" element={<MentorProfile />} />
         <Route path="/freeTrial" element={<FreeTrial />} />
+        <Route path="/ai_chatbot" element={<AIChatbot />} />
       </Routes>
     </BrowserRouter>
   );

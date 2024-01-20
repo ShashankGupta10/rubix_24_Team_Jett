@@ -206,7 +206,8 @@ const MenteeLogin = () => {
             </div>
             <button
               className="w-full px-4 py-2 text-white font-medium  bg-black hover:bg-gray-700 active:bg-gray-600 rounded-lg duration-150"
-              onClick={() => navigate("/menteedashboard")}
+              onClick={() => 
+                setTimeout(() =>navigate("/menteedashboard"), 5000)}
             >
               Login
             </button>
