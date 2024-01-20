@@ -96,7 +96,7 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-              <Avatar />
+              {/* <Avatar /> */}
           </div>
         </main>
       </div>

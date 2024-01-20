@@ -14,6 +14,7 @@ import MentorProfile from "./Pages/MentorProfile";
 import Forums from "./Pages/Forums";
 import Forumopen from "./Pages/Forumopen";
 import MenteeDashboard from "./Pages/MenteeDashboard";
+import FreeTrial from "./Pages/FreeTrial";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/price" element={<Price />} />
         <Route path="/mentorprofile" element={<MentorProfile />} />
+        <Route path="/freeTrial" element={<FreeTrial />} />
       </Routes>
     </BrowserRouter>
   );
