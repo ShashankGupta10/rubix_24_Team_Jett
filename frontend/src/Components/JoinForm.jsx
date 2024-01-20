@@ -57,33 +57,33 @@ const JoinForm = () => {
     //   </div>
     //   <button className="btn-primary">Join</button>
     // </form>
-    <main class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
                 <div className="border border-gray-300 py-2 px-2 rounded-lg" onClick={()=>{navigate('/dashboard')}}>
               <IoMdArrowBack className="w-6 h-4" />
               </div>
-      <header class="mt-6 mb-10 text-center">
-        <h1 class="text-4xl font-bold text-gray-800 ">
+      <header className="mt-6 mb-10 text-center">
+        <h1 className="text-4xl font-bold text-gray-800 ">
           Create and Join Room
         </h1>
-        <p class="mt-2 text-gray-600 ">
+        <p className="mt-2 text-gray-600 ">
           Please enter your details to join the call
         </p>
       </header>
       <div
-        class="rounded-lg border-4 bg-card text-card-foreground shadow-sm w-full max-w-md mx-auto"
+        className="rounded-lg border-4 bg-card text-card-foreground shadow-sm w-full max-w-md mx-auto"
         data-v0-t="card"
       >
-        <div class="p-8">
-          <form class="space-y-6" onSubmit={handleSubmit}>
-            <div class="space-y-2">
+        <div className="p-8">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="space-y-2">
               <label
-                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="name"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                htmlFor="name"
               >
                 Name
               </label>
               <input
-                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 id="name"
                 type="text"
                 name="name"
@@ -92,15 +92,15 @@ const JoinForm = () => {
                 required=""
               />
             </div>
-            <div class="space-y-2">
+            <div className="space-y-2">
               <label
-                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="entry-key"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                htmlFor="entry-key"
               >
                 Entry Key
               </label>
               <input
-                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="Enter your entry key"
                 id="room-code"
                 type="text"
@@ -110,7 +110,7 @@ const JoinForm = () => {
               />
             </div>
             <button
-              class="btn-primary bg-gray-800 text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
+              className="btn-primary bg-gray-800 text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
               type="submit"
             >
               Enter Call

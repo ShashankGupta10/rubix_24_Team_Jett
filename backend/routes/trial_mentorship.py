@@ -20,9 +20,11 @@ def trial_mentorship():
     model = whisper.load_model("base", device="cuda")
     result = model.transcribe(file_path, fp16=False)
     transcribed_text = result["text"]
-    prompt_template = f"You are a mentor bot. You are talking to a student. The student says: {transcribed_text}. Your task is to help the student with their career guidance. Give them very general guidance to the questions they ask. You can also ask them questions about their career goals."
+    print(transcribed_text)
+    prompt_template = f"You are a mentor bot. You are talking to a student. The student says: {transcribed_text}. Your task is to help the student with their career guidance in under 100 words. Give them very general guidance to the questions they ask. You can also ask them questions about their career goals."
     llm_answer = llm.predict(prompt_template)
-    os.remove(file_path)
+    print(llm_answer)
+    # os.remove(file_path)
     tts = TTS(model_name="tts_models/multilingual/multi-dataset/your_tts", progress_bar=True).to("cuda")
-    tts.tts_to_file(llm_answer, speaker_wav="./routes/test.wav", language="en", file_path="./routes/output.wav")
-    return send_file("./routes/output.wav", mimetype="audio/wav")
+    tts.tts_to_file(llm_answer, speaker_wav="./routes/test.wav", language="en", file_path="./static/output.wav")
+    return jsonify({"success": True})

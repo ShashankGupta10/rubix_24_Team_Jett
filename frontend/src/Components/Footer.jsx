@@ -2,7 +2,7 @@ import { useAVToggle } from "@100mslive/react-sdk";
 import { CiVideoOn, CiVideoOff } from "react-icons/ci";
 import mute from "../assets/mute.png";
 import unmute from "../assets/unmute.png";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
 const Footer = () => {
@@ -58,33 +58,32 @@ const Footer = () => {
 
   const sendToAPI = async (formData) => {
     let res = await axios.post("/api/trial_mentorship", formData, ).catch((error) => {console.log(error);})
-    const blob = new Blob([res.data], { type: 'application/octet-stream' });
-    const urlAudio = (res.data)
+    setPlayAudio(true)
   };
 
 
   return (
-    <div className="control-bar border-4 rounded-lg w-16 flex justify-evenly">
+    <div className="control-bar border-4 rounded-lg flex pr-2 justify-evenly">
       <button className="btn-control" onClick={handleFileChange}>
         {isLocalAudioEnabled ? (
-          <img className="w-3 mr-2" src={unmute} />
+          <img className="w-7 h-9 mr-2" src={mute} />
         ) : (
-          <img className="w-4 mr-2" src={mute} />
+          <img className="w-6 h-9 mr-2" src={unmute} />
         )}
       </button>
-      <button className="btn-control" onClick={toggleVideo}>
-        {isLocalVideoEnabled ? <CiVideoOn /> : <CiVideoOff />}
+      <button className="btn-control w-8" onClick={toggleVideo}>
+        {isLocalVideoEnabled ? <CiVideoOn className="w-full scale-150"/> : <CiVideoOff className="w-full scale-150" />}
       </button>
       <button
         className="btn-control"
         onClick={handleFileUpload}
         disabled={!audioRecording}
       >
-        Upload
+        Get Answer
       </button>
       {playAudio?
       <audio autoPlay>
-        <source src={urlAudio} type="audio/wav" />
+        <source src="http://127.0.0.1:5000/static/output.wav" type="audio/wav" />
       </audio>:
       <></>
       }

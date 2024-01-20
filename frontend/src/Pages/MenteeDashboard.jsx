@@ -1527,13 +1527,13 @@ const MenteeDashboard = () => {
                 </div>
               </div>
             </div>
-            <div class="grid md:grid-cols-1 gap-6">
+            <div className="grid md:grid-cols-1 gap-6">
               <div
-                class="rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col"
+                className="rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col"
                 data-v0-t="card"
               >
-                <div class="flex p-6 gap-4">
-                  <p class="text-lg font-semibold ">Career Development Goals</p>
+                <div className="flex p-6 gap-4">
+                  <p className="text-lg font-semibold ">Career Development Goals</p>
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1551,9 +1551,9 @@ const MenteeDashboard = () => {
                     <path d="m15 5 4 4"></path>
                   </svg>
                 </div>
-                <div class="px-6 ">
-                  <ul class="divide-y divide-gray-200">
-                    <li class="py-4 flex">
+                <div className="px-6 ">
+                  <ul className="divide-y divide-gray-200">
+                    <li className="py-4 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -1564,15 +1564,15 @@ const MenteeDashboard = () => {
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="h-6 w-6 text-green-500"
+                        className="h-6 w-6 text-green-500"
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span class="ml-3">
+                      <span className="ml-3">
                         Create a Personal Branding Strategy
                       </span>
                     </li>
-                    <li class="py-4 flex">
+                    <li className="py-4 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -1583,15 +1583,15 @@ const MenteeDashboard = () => {
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="h-6 w-6 text-green-500"
+                        className="h-6 w-6 text-green-500"
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span class="ml-3">
+                      <span className="ml-3">
                         Build a Professional Network on LinkedIn
                       </span>
                     </li>
-                    <li class="py-4 flex">
+                    <li className="py-4 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -1602,17 +1602,17 @@ const MenteeDashboard = () => {
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="h-6 w-6 text-red-500"
+                        className="h-6 w-6 text-red-500"
                       >
                         <path d="M18 6 6 18"></path>
                         <path d="m6 6 12 12"></path>
                       </svg>
 
-                      <span class="ml-3">
+                      <span className="ml-3">
                         Attend Industry-Specific Networking Events
                       </span>
                     </li>
-                    <li class="py-4 flex">
+                    <li className="py-4 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="100"
@@ -1635,11 +1635,11 @@ const MenteeDashboard = () => {
                         ></rect>
                       </svg>
 
-                      <span class="ml-3">
+                      <span className="ml-3">
                         Build a Diverse Professional Network
                       </span>
                     </li>
-                    <li class="py-4 flex">
+                    <li className="py-4 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="100"
@@ -1661,11 +1661,11 @@ const MenteeDashboard = () => {
                           ry="5"
                         ></rect>
                       </svg>
-                      <span class="ml-3">
+                      <span className="ml-3">
                         Develop and Refine Elevator Pitch
                       </span>
                     </li>
-                    <li class="py-4 flex">
+                    <li className="py-4 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="100"
@@ -1687,7 +1687,7 @@ const MenteeDashboard = () => {
                           ry="5"
                         ></rect>
                       </svg>
-                      <span class="ml-3">Create a Career Development Plan</span>
+                      <span className="ml-3">Create a Career Development Plan</span>
                     </li>
                   </ul>
                 </div>
