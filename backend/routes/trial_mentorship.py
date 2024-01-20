@@ -9,9 +9,8 @@ llm = Cohere(cohere_api_key=os.environ["COHERE_API_KEY"])
 trial_mentorship_blueprint = Blueprint("trial_mentorship_blueprint", __name__)
 
 
-@trial_mentorship_blueprint.route("/trial_mentorship", methods=["POST"])
+@trial_mentorship_blueprint.route("/api/trial_mentorship", methods=["POST"])
 def trial_mentorship():
-    print(request.get_data())
     local = request.files["audio"]
     save_dir = "./audio"
     file_path = os.path.join(save_dir, local.name)

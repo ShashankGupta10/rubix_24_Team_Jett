@@ -11,7 +11,7 @@ const Search = () => {
 
   useEffect(() => {
     (async () => {
-      let res = await axios.get("http://localhost:5000/getmentors");
+      let res = await axios.get("/api/getmentors");
       setMentors(res.data)
       console.log(mentors)
     })()
@@ -19,7 +19,7 @@ const Search = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await axios.post("http://localhost:5000/search", {search})
+    let res = await axios.post("/api/search", {search})
     setSearch("")
     console.log(res.data)
     setMentors(res.data)

@@ -17,7 +17,7 @@ app.config['MONGO_URI'] = os.environ['MONGO_URI']
 from model import DB
 
 DB.init_app(app)
-CORS(app)
+CORS(app, resources={r"*": {"origins": "*"}})
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 

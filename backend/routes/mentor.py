@@ -10,7 +10,7 @@ db = DB.db
 
 mentors = Blueprint("mentors", __name__)
 
-@mentors.route("/embedding")
+@mentors.route("/api/embedding")
 def embed():
     mentors = db.mentors.find({}, {"expertise": 1})
     for mentor in mentors:
@@ -23,7 +23,7 @@ def embed():
         })
     return "done"
 
-@mentors.route("/search", methods=['POST'])
+@mentors.route("/api/search", methods=['POST'])
 def search():
     payload = request.get_json()
     query_embedding = embedder.embed_query(payload['search'])
@@ -48,7 +48,7 @@ def search():
 
     return jsonify(list([result]))
 
-@mentors.route("/getmentors")
+@mentors.route("/api/getmentors")
 def allMentors():
     mentors = db.mentors.find({}, {"_id": 0, "skill_embeddings": 0})
     return jsonify(list(mentors))
