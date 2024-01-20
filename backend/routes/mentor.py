@@ -46,4 +46,9 @@ def search():
     
     result = next(cursor, None)
 
-    return jsonify({"name": result['name']})
+    return jsonify(list([result]))
+
+@mentors.route("/getmentors")
+def allMentors():
+    mentors = db.mentors.find({}, {"_id": 0, "skill_embeddings": 0})
+    return jsonify(list(mentors))

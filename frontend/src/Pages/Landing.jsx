@@ -1,6 +1,6 @@
 import one from "./../assets/1.png";
 import { useNavigate } from "react-router-dom";
-import Avatar from "../Components/avatar";
+import Avatar from "../Components/Avatar";
 
 const Landing = () => {
   const navigate = useNavigate();

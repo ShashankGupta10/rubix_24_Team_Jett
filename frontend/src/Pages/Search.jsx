@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import one from "../assets/1.png";
 import { IoMdArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 const Search = () => {
+  const [mentors, setMentors] = useState([])
+  const [search, setSearch] = useState("")
   const navigate = useNavigate();
+
+  useEffect(() => {
+    (async () => {
+      let res = await axios.get("http://localhost:5000/getmentors");
+      setMentors(res.data)
+      console.log(mentors)
+    })()
+  }, [])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let res = await axios.post("http://localhost:5000/search", {search})
+    setSearch("")
+    console.log(res.data)
+    setMentors(res.data)
+  }
+
   return (
     <>
       <header className="flex h-14 items-center gap-4 border-b bg-gray-100/40 px-6 ">
@@ -28,7 +48,7 @@ const Search = () => {
           <span className="sr-only">Home</span>
         </a>
         <div className="w-full flex-1">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,9 +66,11 @@ const Search = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </svg>
               <input
-                className="flex h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3"
+                className="flex h-10 rounded-md border border-input px-4 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3"
                 placeholder="Search"
                 type="search"
+                value={search}
+                onChange={(e) => {setSearch(e.target.value)}}
               />
             </div>
           </form>
@@ -243,7 +265,9 @@ const Search = () => {
             </button>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="relative group">
+
+            {mentors.map((mentor, index) => (
+          <div className="relative group" key={index}>
               <img
                 src={one}
                 alt="Cover image"
@@ -254,69 +278,26 @@ const Search = () => {
               <div className="flex-1 py-4">
                 <h3 className="font-semibold tracking-tight">John Doe</h3>
                 <small className="text-sm leading-none text-gray-600 ">
-                  Expertise: Tech
+                  Expertise: 
+                  <span className="ml-2">
+                    {mentor.expertise.map((skill, index) => (<span key={index} className=" mr-2">{skill}</span>))}
+                  </span>
                 </small>
 
                 <p className="text-sm leading-none text-gray-600 ">
-                  Availability: Weekdays
+                  Availability: {mentor.availability}
                 </p>
                 <p className="text-sm leading-none text-gray-600  mt-2">
-                  Range: 30$ to 50$
+                  Range: {mentor.fees[0]}$ to {mentor.fees[1]}$
                 </p>
               </div>
               <button onClick={()=>{navigate('/mentorprofile')}} className="px-4 py-2 w-full text-gray-800 bg-gray-200 rounded-lg duration-150 hover:bg-gray-100 active:bg-gray-200">
                 Book Mentor
               </button>
             </div>
-            <div className="relative group">
-
-              <img
-                src={one}
-                alt="Cover image"
-                width="200"
-                height="200"
-                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-70 transition-opacity"
-              />
-              <div className="flex-1 py-4">
-                <h3 className="font-semibold tracking-tight">Jane Smith</h3>
-                <small className="text-sm leading-none text-gray-600">
-                  Expertise: Business
-                </small>
-                <p className="text-sm leading-none text-gray-600 ">
-                  Availability: Weekend
-                </p>
-                <p className="text-sm leading-none text-gray-600  mt-2">
-                  Range: 30$ to 50$
-                </p>
-              </div>
-              <button  className="px-4 py-2 w-full text-gray-800 bg-gray-200 rounded-lg duration-150 hover:bg-gray-100 active:bg-gray-200">
-                Book Mentor
-              </button> 
-            </div>
-            <div className="relative group">
-              <img
-                src={one}
-                alt="Cover image"
-                width="200"
-                height="200"
-                className="rounded-lg object-cover w-full aspect-square group-hover:opacity-70 transition-opacity"
-              />
-              <div className="flex-1 py-4">
-                <h3 className="font-semibold tracking-tight">Alex Johnson</h3>
-                <small className="text-sm leading-none text-gray-600">
-                  Expertise: Education
-                </small>
-                <p className="text-sm leading-none text-gray-600 ">
-                  Availability: Weekdays
-                </p>
-                <p className="text-sm leading-none text-gray-600  mt-2">
-                  Range: 30$ to 50$
-                </p>
-              </div>
-              <button className="px-4 py-2 w-full text-gray-800 bg-gray-200 rounded-lg duration-150 hover:bg-gray-100 active:bg-gray-200">
-                Book Mentor
-              </button>
-            </div>
+            ))
+          }
+            
           </div>
         </div>
       </section>
