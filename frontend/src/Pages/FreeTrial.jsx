@@ -3,6 +3,7 @@ import striver from "./../assets/job.mp4";
 import { useRef,useEffect } from "react";
 
 const FreeTrial = () => {
+  
   const videoRef = useRef(null);
   useEffect(() => {
     const startWebcam = async () => {
@@ -64,6 +65,7 @@ const FreeTrial = () => {
             className="w-full h-full object-cover"
             width="1280"
             height="720"
+            loop
             autoPlay
             playsInline
             // style={{ aspectRatio: "1280/720", objectFit: "cover" }}
