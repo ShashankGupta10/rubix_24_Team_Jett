@@ -157,7 +157,7 @@ const MentorProfile = () => {
           </div>
           <div>
             <button
-              className="px-4 py-2 mt-4 bg-white text-black rounded-lg duration-150 hover:bg-gray-800 "
+              className="px-4 py-2 mt-4 bg-white text-black rounded-lg duration-150 hover:bg-gray-400 "
               onClick={() => navigate("/freeTrial")}
             >
               Audio Call
