@@ -5,6 +5,48 @@ import { useNavigate } from "react-router-dom";
 const MentorProfile = () => {
   const navigate = useNavigate();
 
+  const plans = [
+    {
+      name: "Basic plan",
+      price: 12,
+      features: [
+        "Curabitur faucibus",
+        "massa ut pretium maximus",
+        "Sed posuere nisi",
+        "Pellentesque eu nibh et neque",
+        "Suspendisse a leo",
+        "Praesent quis venenatis ipsum",
+        "Duis non diam vel tortor",
+      ],
+    },
+    {
+      name: "Startup",
+      price: 35,
+      features: [
+        "Curabitur faucibus",
+        "massa ut pretium maximus",
+        "Sed posuere nisi",
+        "Pellentesque eu nibh et neque",
+        "Suspendisse a leo",
+        "Praesent quis venenatis ipsum",
+        "Duis non diam vel tortor",
+      ],
+    },
+    // {
+    //     name: "Enterprise",
+    //     price: 60,
+    //     features: [
+    //         "Curabitur faucibus",
+    //         "massa ut pretium maximus",
+    //         "Sed posuere nisi",
+    //         "Pellentesque eu nibh et neque",
+    //         "Suspendisse a leo",
+    //         "Praesent quis venenatis ipsum",
+    //         "Duis non diam vel tortor",
+    //     ],
+    // },
+  ];
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div
@@ -105,6 +147,22 @@ const MentorProfile = () => {
               Senior Software Engineer at Acme Inc.
             </p>
           </div>
+          <div className="flex justify-center">
+            <button
+              className="px-4 py-2 mt-4 text-white bg-black rounded-lg duration-150 hover:bg-gray-800 "
+              onClick={() => navigate("/freeTrial")}
+            >
+              Free trial
+            </button>
+          </div>
+          <div>
+            <button
+              className="px-4 py-2 mt-4 bg-white text-black rounded-lg duration-150 hover:bg-gray-800 "
+              onClick={() => navigate("/freeTrial")}
+            >
+              Audio Call
+            </button>
+          </div>
           <div className="mt-6">
             <h3 className="text-lg font-medium">Contact Information</h3>
             <dl className="mt-2 space-y-2">
@@ -169,7 +227,47 @@ const MentorProfile = () => {
           </div>
         </div>
         <div className="mt-8 lg:mt-0 lg:col-span-2">
-          <div className="px-4 py-5 bg-white shadow rounded-lg mb-4">500$/month</div>
+          {/* <div className='mt-16 space-y-6 justify-center gap-6 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3'>
+                    {
+                        plans.map((item, idx) => (
+                            <div key={idx} className='relative flex-1 flex items-stretch flex-col p-8 rounded-xl border-2'>
+                                <div>
+                                    <span className='text-gray-600 font-medium'>
+                                        {item.name}
+                                    </span>
+                                    <div className='mt-4 text-gray-800 text-3xl font-semibold'>
+                                        ${item.price} <span className="text-xl text-gray-600 font-normal">/mo</span>
+                                    </div>
+                                </div>
+                                <ul className='py-8 space-y-3'>
+                                    {
+                                        item.features.map((featureItem, idx) => (
+                                            <li key={idx} className='flex items-center gap-5'>
+                                                <svg
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                    className='h-5 w-5 text-gray-600'
+                                                    viewBox='0 0 20 20'
+                                                    fill='currentColor'>
+                                                    <path
+                                                        fill-rule='evenodd'
+                                                        d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                                                        clip-rule='evenodd'></path>
+                                                </svg>
+                                                {featureItem}
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                                <div className="flex-1 flex items-end">
+                                    <button className='px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-gray-600 hover:bg-gray-500 active:bg-gray-700'>
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div> */}
+
           <div className="px-4 py-5 bg-white shadow rounded-lg ">
             <h2 className="text-xl font-bold">Bio</h2>
             <p className="mt-2 text-sm text-gray-500 ">
